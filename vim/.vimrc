@@ -13,7 +13,6 @@ set ts=4
 
 set scrolloff =3                   " Show 3 lines of context around the cursor.
 
-set cursorline
 set ruler
 
 set noswapfile
@@ -43,12 +42,6 @@ set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:. " Highlight problematic whitespace
 
 
-" Easier moving in tabs and windows
-map <C-J> <C-W>j<C-W>_
-map <C-K> <C-W>k<C-W>_
-map <C-L> <C-W>l<C-W>_
-map <C-H> <C-W>h<C-W>_
-
 color molokai
 
 "PLUGINS
@@ -56,8 +49,13 @@ color molokai
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v(.git|web|cache|vendor)$',
+  \ }
+
 let mapleader                       = ","
 
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+let g:SuperTabDefaultCompletionType = "context"
 
-inoremap  <silent> = =<esc>:Tabularize /=<cr>A
+imap ;dump \Doctrine\Common\Util\Debug::dump
