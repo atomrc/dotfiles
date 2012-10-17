@@ -22,10 +22,3 @@ if [ "$TERM" != "dumb" ]; then
     export LS_OPTIONS='--color=auto'
     eval `dircolors ~/.dir_colors`
 fi
-
-PATH=/usr/local/texlive/2011/bin/universal-darwin/:$PATH 
-
-# Setting PATH for Python 3.2
-# The orginal version is saved in .bash_profile.pysave
-PATH="/Library/Frameworks/Python.framework/Versions/3.2/bin:${PATH}"
-export PATH
