@@ -16,8 +16,6 @@ set scrolloff =3                   " Show 3 lines of context around the cursor.
 set ruler
 set cursorline
 
-set noswapfile
-
 set backspace=indent,eol,start
 
 set softtabstop=4

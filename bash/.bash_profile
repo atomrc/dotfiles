@@ -1,0 +1,31 @@
+# Couleurs du préfix du terminal
+NM="\[\033[0;38m\]"
+HI="\[\033[0;37m\]"
+HII="\[\033[0;36m\]"
+SI="\[\033[0;33m\]"
+IN="\[\033[0m\]"
+
+export CLICOLOR=1
+export PS1="$NM[ $HI\u  $SI\w$NM ] $IN"
+
+# loading bash_aliases if present
+if [ -f ~/.bash_aliases ]; then
+    source ~/.bash_aliases
+fi
+
+# loading bash_path if present
+if [ -f ~/.bash_path ]; then
+    source ~/.bash_path
+fi
+
+if [ "$TERM" != "dumb" ]; then
+    export LS_OPTIONS='--color=auto'
+    eval `dircolors ~/.dir_colors`
+fi
+
+PATH=/usr/local/texlive/2011/bin/universal-darwin/:$PATH 
+
+# Setting PATH for Python 3.2
+# The orginal version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.2/bin:${PATH}"
+export PATH
