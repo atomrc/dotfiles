@@ -16,3 +16,6 @@
 [submodule "vim/.vim/bundle/phpcomplete"]
 	path = vim/.vim/bundle/phpcomplete
 	url = https://github.com/shawncplus/phpcomplete.vim.git
+[submodule "vim/.vim/bundle/phpdoc"]
+	path = vim/.vim/bundle/phpdoc
+	url = https://github.com/sumpygump/php-documentor-vim.git

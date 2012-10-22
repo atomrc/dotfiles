@@ -55,6 +55,11 @@ let g:ctrlp_custom_ignore = {
 
 let mapleader                       = ","
 
+"Autocomplete mode
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+
+"phpdoc
+au BufRead,BufNewFile *.php nnoremap <buffer> <leader>p :call PhpDoc()<CR>
+au BufRead,BufNewFile *.php vnoremap <buffer> <leader>p :call PhpDocRange()<CR>
 
 imap ;dump \Doctrine\Common\Util\Debug::dump
