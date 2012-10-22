@@ -10,9 +10,6 @@
 [submodule "vim/.vim/bundle/supertab"]
 	path = vim/.vim/bundle/supertab
 	url = git://github.com/ervandew/supertab.git
-[submodule "PIV"]
-	path = PIV
-	url = https://github.com/spf13/PIV.git
 [submodule "vim/.vim/bundle/piv"]
 	path = vim/.vim/bundle/piv
 	url = https://github.com/spf13/PIV.git
