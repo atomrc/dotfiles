@@ -55,6 +55,6 @@ let g:ctrlp_custom_ignore = {
 
 let mapleader                       = ","
 
-"let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
 imap ;dump \Doctrine\Common\Util\Debug::dump
