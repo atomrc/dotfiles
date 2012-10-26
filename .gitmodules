@@ -19,3 +19,9 @@
 [submodule "vim/.vim/bundle/phpdoc"]
 	path = vim/.vim/bundle/phpdoc
 	url = https://github.com/sumpygump/php-documentor-vim.git
+[submodule "vim/.vim/bundle/vim-twig"]
+	path = vim/.vim/bundle/vim-twig
+	url = https://github.com/beyondwords/vim-twig.git
+[submodule "vim/.vim/bundle/php-namespace"]
+	path = vim/.vim/bundle/php-namespace
+	url = https://github.com/arnaud-lb/vim-php-namespace.git

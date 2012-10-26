@@ -62,4 +62,6 @@ let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 au BufRead,BufNewFile *.php nnoremap <buffer> <leader>p :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php vnoremap <buffer> <leader>p :call PhpDocRange()<CR>
 
+au BufRead,BufNewFile *.php nnoremap <buffer> <leader>u :call PhpInsertUse()<CR>
+
 imap ;dump \Doctrine\Common\Util\Debug::dump
