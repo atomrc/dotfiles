@@ -8,6 +8,11 @@ IN="\[\033[0m\]"
 export CLICOLOR=1
 export PS1="$NM[ $HI\u  $SI\w$NM ] $IN"
 
+if [ "$TERM" != "dumb" ]; then
+#    export LS_OPTIONS='--color=auto'
+    eval `dircolors ~/.dir_colors`
+fi
+
 # loading bash_aliases if present
 if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases
@@ -18,7 +23,3 @@ if [ -f ~/.bash_path ]; then
     source ~/.bash_path
 fi
 
-if [ "$TERM" != "dumb" ]; then
-    export LS_OPTIONS='--color=auto'
-    eval `dircolors ~/.dir_colors`
-fi
