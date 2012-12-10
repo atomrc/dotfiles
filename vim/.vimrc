@@ -40,6 +40,8 @@ set foldenable          " auto fold code
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:. " Highlight problematic whitespace
 
+"mappings
+map <C-j> <C-]>
 
 color molokai
 
