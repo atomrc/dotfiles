@@ -41,7 +41,7 @@ set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:. " Highlight problematic whitespace
 
 "mappings
-map <C-j> <C-]>
+map <C-j> g]
 
 color molokai
 
