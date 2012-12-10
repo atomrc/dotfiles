@@ -25,3 +25,6 @@
 [submodule "vim/.vim/bundle/php-namespace"]
 	path = vim/.vim/bundle/php-namespace
 	url = https://github.com/arnaud-lb/vim-php-namespace.git
+[submodule "vim/.vim/bundle/vim-jade"]
+	path = vim/.vim/bundle/vim-jade
+	url = git://github.com/digitaltoad/vim-jade.git

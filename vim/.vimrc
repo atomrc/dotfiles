@@ -50,7 +50,7 @@ let g:ctrlp_cmd = 'CtrlP'
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v(.git|web|cache|vendor)$',
+  \ 'dir':  '\v(.git|web|cache|vendor|node_modules)$',
   \ }
 
 let mapleader                       = ","

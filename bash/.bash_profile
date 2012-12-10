@@ -20,5 +20,5 @@ fi
 
 if [ "$TERM" != "dumb" ]; then
     export LS_OPTIONS='--color=auto'
-    eval `dircolors ~/.dir_colors`
+    #eval `dircolors ~/.dir_colors`
 fi
