@@ -36,6 +36,8 @@ set wildmenu  " show list instead of just completing
 set wildmode=list:longest,full
 
 set foldenable          " auto fold code
+set foldmethod=marker
+set foldmarker={,}
 
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:. " Highlight problematic whitespace
@@ -52,13 +54,15 @@ let g:ctrlp_cmd = 'CtrlP'
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v(.git|web|cache|vendor|node_modules)$',
+  \ 'dir':  '\v(.git|web|cache|vendor|node_modules|lib)$',
   \ }
 
 let mapleader                       = ","
 
 "Autocomplete mode
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
+let g:ctrlp_max_depth=1000
+let g:ctrlp_max_files=100000
 
 "phpdoc
 au BufRead,BufNewFile *.php nnoremap <buffer> <leader>p :call PhpDoc()<CR>
