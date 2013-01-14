@@ -51,6 +51,8 @@ color molokai
 "CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_max_depth=1000
+let g:ctrlp_max_files=100000
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = {
@@ -61,8 +63,6 @@ let mapleader                       = ","
 
 "Autocomplete mode
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
-let g:ctrlp_max_depth=1000
-let g:ctrlp_max_files=100000
 
 "phpdoc
 au BufRead,BufNewFile *.php nnoremap <buffer> <leader>p :call PhpDoc()<CR>
