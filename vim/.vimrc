@@ -49,6 +49,7 @@ color molokai
 
 "PLUGINS
 "CtrlP
+map <c-b> :CtrlPBuffer<CR>
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_max_depth=1000
