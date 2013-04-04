@@ -45,6 +45,8 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:. " Highlight problematic whitespace
 "mappings
 map <C-j> g]
 
+imap jj <Esc>
+
 color molokai
 
 "PLUGINS
