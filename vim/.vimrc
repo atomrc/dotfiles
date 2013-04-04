@@ -72,3 +72,8 @@ au BufRead,BufNewFile *.php vnoremap <buffer> <leader>p :call PhpDocRange()<CR>
 au BufRead,BufNewFile *.php nnoremap <buffer> <leader>u :call PhpInsertUse()<CR>
 
 imap ;dump \Doctrine\Common\Util\Debug::dump
+
+"custom vim config file
+if filereadable(".vim.custom")
+    so .vim.custom
+endif
