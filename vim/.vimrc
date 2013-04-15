@@ -8,6 +8,7 @@ filetype plugin on
 
 set encoding=utf8
 set fileencoding=utf8
+set fileformat=unix
 set autoindent
 set ts=4
 
@@ -45,7 +46,7 @@ set listchars=tab:>.,trail:.,extends:#,nbsp:. " Highlight problematic whitespace
 "mappings
 map <C-j> g]
 
-imap jj <Esc>
+imap jk <Esc>
 
 color molokai
 
@@ -59,7 +60,7 @@ let g:ctrlp_max_files=100000
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v(.git|web|cache|vendor|node_modules|lib)$',
+  \ 'dir':  '\v(.git|web|cache|vendor|node_modules|lib|tmp|bin|var|test|docs|build)$',
   \ }
 
 let mapleader                       = ","
@@ -74,8 +75,3 @@ au BufRead,BufNewFile *.php vnoremap <buffer> <leader>p :call PhpDocRange()<CR>
 au BufRead,BufNewFile *.php nnoremap <buffer> <leader>u :call PhpInsertUse()<CR>
 
 imap ;dump \Doctrine\Common\Util\Debug::dump
-
-"custom vim config file
-if filereadable(".vim.custom")
-    so .vim.custom
-endif
