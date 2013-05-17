@@ -3,3 +3,14 @@ snippet af
 	function (${1:arguments}) {
 		${2:body}
 	};
+
+snippet directive
+	directives.${1:directive} = [function () {
+		'use strict';
+		return {
+			restrict: 'A',
+			link: function (scope, element, attrs) {
+				${2:body}
+			}
+		};
+	}];
