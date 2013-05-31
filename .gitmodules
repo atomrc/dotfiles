@@ -42,4 +42,4 @@
 	url = https://github.com/msanders/snipmate.vim.git
 [submodule "vim/.vim/bundle/jsdoc.vim"]
 	path = vim/.vim/bundle/jsdoc.vim
-	url = https://github.com/thomasbelin4/vim-jsdoc.git
+	url = git://github.com/heavenshell/vim-jsdoc.git
