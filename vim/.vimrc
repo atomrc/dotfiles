@@ -68,6 +68,10 @@ let mapleader                       = ","
 "Autocomplete mode
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
+"jsDoc
+let g:jsdoc_return = 1
+let g:jsdoc_additional_descriptions = 0
+au BufRead,BufNewFile *.js nnoremap <buffer> <leader>p :JsDoc<CR>
 "phpdoc
 au BufRead,BufNewFile *.php nnoremap <buffer> <leader>p :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php vnoremap <buffer> <leader>p :call PhpDocRange()<CR>
