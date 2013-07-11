@@ -5,8 +5,7 @@ snippet af
 	};
 
 snippet directive
-	directives.${1:directive} = [function () {
-		'use strict';
+	app.directives.${1:directive} = [function () {
 		return {
 			restrict: 'A',
 			link: function (scope, element, attrs) {
@@ -14,3 +13,6 @@ snippet directive
 			}
 		};
 	}];
+
+snippet con
+	console.log(arguments);
