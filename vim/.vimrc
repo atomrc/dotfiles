@@ -68,6 +68,9 @@ let mapleader                       = ","
 "Autocomplete mode
 let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
+"Syntastic
+let g:syntastic_javascript_checkers=['jshint']
+
 "jsDoc
 let g:jsdoc_return = 1
 let g:jsdoc_additional_descriptions = 0
