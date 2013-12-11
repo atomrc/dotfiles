@@ -70,6 +70,7 @@ let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
 "Syntastic
 let g:syntastic_javascript_checkers=['jshint']
+let g:syntastic_always_populate_loc_list=1
 
 "jsDoc
 let g:jsdoc_return = 1
