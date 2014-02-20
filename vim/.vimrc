@@ -65,8 +65,6 @@ let g:ctrlp_custom_ignore = {
 
 let mapleader                       = ","
 
-"Autocomplete mode
-let g:SuperTabDefaultCompletionType = "<C-X><C-O>"
 
 "Syntastic
 let g:syntastic_javascript_checkers=['jshint']
@@ -83,3 +81,7 @@ au BufRead,BufNewFile *.php vnoremap <buffer> <leader>p :call PhpDocRange()<CR>
 au BufRead,BufNewFile *.php nnoremap <buffer> <leader>u :call PhpInsertUse()<CR>
 
 imap ;dump \Doctrine\Common\Util\Debug::dump
+
+if filereadable(".vim.custom")
+    so .vim.custom
+endif
