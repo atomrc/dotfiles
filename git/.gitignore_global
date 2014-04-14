@@ -1,0 +1,7 @@
+*~
+*.swp #vim swap files
+.DS_Store
+tags
+tags.sh
+.vim.custom
+.tern-project
