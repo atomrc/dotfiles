@@ -6,7 +6,7 @@ all: bash vim git
 
 bash:
 	ln -s $(PROJET_PATH)/bash/.bash_profile ~/.bash_profile
-	ln -s $(PROJET_PATH)/bash/.bash_profile ~/.bash_aliases
+	ln -s $(PROJET_PATH)/bash/.bash_aliases ~/.bash_aliases
 
 vim:
 	ln -s $(PROJET_PATH)/vim/.vimrc ~/.vimrc

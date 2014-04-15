@@ -22,3 +22,8 @@ fi
 if [ -f ~/.bash_path ]; then
     source ~/.bash_path
 fi
+
+# loading bash_path if present
+if [ -f ~/.bashrc ]; then
+    source ~/.bashrc
+fi
