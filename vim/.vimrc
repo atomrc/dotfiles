@@ -31,7 +31,6 @@ set ignorecase  " case insensitive search
 set smartcase
 
 set nocp
-filetype plugin on
 
 set wildmenu  " show list instead of just completing
 set wildmode=list:longest,full
@@ -65,7 +64,6 @@ let g:ctrlp_custom_ignore = {
 
 let mapleader                       = ","
 
-
 "Syntastic
 let g:syntastic_javascript_checkers=['jshint']
 let g:syntastic_always_populate_loc_list=1
@@ -76,12 +74,13 @@ let g:jsdoc_additional_descriptions = 0
 au BufRead,BufNewFile *.js nnoremap <buffer> <leader>p :JsDoc<CR>
 "phpdoc
 au BufRead,BufNewFile *.php nnoremap <buffer> <leader>p :call PhpDoc()<CR>
-au BufRead,BufNewFile *.php vnoremap <buffer> <leader>p :call PhpDocRange()<CR>
 
 au BufRead,BufNewFile *.php nnoremap <buffer> <leader>u :call PhpInsertUse()<CR>
 
-imap ;dump \Doctrine\Common\Util\Debug::dump
+map <leader>s :call SourceCustomVim()<CR>
 
-if filereadable(".vim.custom")
-    so .vim.custom
-endif
+function SourceCustomVim()
+    if filereadable(".vim.custom")
+        so .vim.custom
+    endif
+endfunction
