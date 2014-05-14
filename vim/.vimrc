@@ -65,7 +65,7 @@ let g:ctrlp_custom_ignore = {
 let mapleader                       = ","
 
 "Syntastic
-let g:syntastic_javascript_checkers=['jshint']
+let g:syntastic_javascript_checkers=['eslint']
 let g:syntastic_always_populate_loc_list=1
 
 "jsDoc

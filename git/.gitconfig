@@ -1,13 +1,14 @@
 [user]
-	name = Thomas Belin
-	email = thomasbelin4@gmail.com
+    name = Thomas Belin
+    email = thomasbelin4@gmail.com
 [core]
-	excludesfile = /Volumes/Content/thomasbelin/.gitignore_global
-	editor = /usr/bin/vim
+    excludesfile = /Volumes/Content/thomasbelin/.gitignore_global
+    editor = /usr/bin/vim
 [push]
-	default = current
+    default = current
 [alias]
-	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	st = status -sb
+    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    st = status -sb
     df = diff --color
     ft = fetch -p
+    co = checkout
