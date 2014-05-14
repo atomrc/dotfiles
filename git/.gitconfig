@@ -2,7 +2,7 @@
     name = Thomas Belin
     email = thomasbelin4@gmail.com
 [core]
-    excludesfile = /Volumes/Content/thomasbelin/.gitignore_global
+    excludesfile = ~/.gitignore_global
     editor = /usr/bin/vim
 [push]
     default = current

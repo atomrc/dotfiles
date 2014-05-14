@@ -1,5 +1,5 @@
 *~
-*.swp #vim swap files
+*.swp
 .DS_Store
 tags
 tags.sh
