@@ -1,5 +1,5 @@
 function parse_git_branch () {
-    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1 /'
+    git status -sb 2> /dev/null | sed -e '/^[^#]/d' -e 's/## \(.*\)/\1 /'
 }
 
 # Couleurs du préfix du terminal
