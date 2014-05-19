@@ -1,17 +1,18 @@
+# Couleurs du préfix du terminal
+WHITE="\033[0;38m"
+HI="\033[0;37m"
+HII="\033[0;36m"
+ORANGE="\033[0;33m"
+GREEN="\033[0;32m"
+RED="\033[0;31m"
+RESET="\033[0m"
+
 function parse_git_branch () {
-    git status -sb 2> /dev/null | sed -e '/^[^#]/d' -e 's/## \(.*\)/\1 /'
+    git status -sb 2> /dev/null | sed -e '/^[^#]/d' -e "s/^## \([^\.]*\)\.*\([^ ]*\)/`printf $GREEN`\1`printf $WHITE`...`printf $RED`\2/"
 }
 
-# Couleurs du préfix du terminal
-NM="\[\033[0;38m\]"
-HI="\[\033[0;37m\]"
-HII="\[\033[0;36m\]"
-SI="\[\033[0;33m\]"
-GREEN="\[\033[0;32m\]"
-IN="\[\033[0m\]"
-
 export CLICOLOR=1
-export PS1="$NM[ $HI\u  $SI\w$NM $GREEN\$(parse_git_branch)$NM] $IN"
+export PS1="\[$WHITE\][ \[$HI\]\u \[$ORANGE\]\w\[$WHITE\] \$(parse_git_branch)\[$WHITE\] ] \[$RESET\]"
 
 # loading bash_aliases if present
 if [ -f ~/.bash_aliases ]; then
