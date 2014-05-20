@@ -8,7 +8,7 @@ RED="\e[0;31m"
 RESET="\e[0m"
 
 function parse_git_branch () {
-    git status -sb 2> /dev/null | sed -E -e '/^[^#]/d' -e "s/^## ([^\.]*)(\.\.\.)?([^ ]*)/\1\2\3/"
+    git branch 2> /dev/null | sed -E -e '/^[^\*]/d' -e "s/^\* (.*)$/\1/"
 }
 
 export CLICOLOR=1
