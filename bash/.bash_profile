@@ -8,11 +8,11 @@ RED="\e[0;31m"
 RESET="\e[0m"
 
 function parse_git_branch () {
-    git branch 2> /dev/null | sed -E -e '/^[^\*]/d' -e "s/^\* (.*)$/\1/"
+    git status -sb 2> /dev/null | sed -E -e '/^[^#]/d' -e "s/^## ([^\.]*)[^\[]*( \[.*\])?$/\1\2 /"
 }
 
 export CLICOLOR=1
-export PS1="\[$WHITE\][ \[$GRAY\]\u \[$ORANGE\]\w \[$GREEN\]\$(parse_git_branch) \[$RESET\]] "
+export PS1="\[$WHITE\][ \[$GRAY\]\u \[$ORANGE\]\w \[$GREEN\]\$(parse_git_branch)\[$RESET\]] "
 
 # loading bash_aliases if present
 if [ -f ~/.bash_aliases ]; then
