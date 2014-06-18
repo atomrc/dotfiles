@@ -1,18 +1,33 @@
 # Couleurs du préfix du terminal
-WHITE="\e[0;38m"
-GRAY="\e[0;37m"
-HII="\e[0;36m"
-ORANGE="\e[0;33m"
-GREEN="\e[0;32m"
-RED="\e[0;31m"
-RESET="\e[0m"
+WHITE="\[\e[0;38m\]"
+GRAY="\[\e[0;37m\]"
+HII="\[\e[0;36m\]"
+ORANGE="\[\e[0;33m\]"
+GREEN="\[\e[0;32m\]"
+RED="\[\e[0;31m\]"
+RESET="\[\e[0m\]"
 
 function parse_git_branch () {
-    git status -sb 2> /dev/null | sed -E -e '/^[^#]/d' -e "s/^## ([^\.]*)[^\[]*( \[.*\])?$/\1\2 /"
+    local git_status="$(git status -sb | sed -E -e '/^[^#]/d' 2> /dev/null)"
+    local branch="$(echo $git_status | sed -E -e "s/^## ([^\.]*).*$/\1/")"
+    if [[ $git_status =~ "ahead" ]]; then
+        local ahead=" $WHITE$(echo $git_status | sed -E -e "s/^.*ahead ([0-9]+).*$/\1/")↑"
+    fi
+    if [[ $git_status =~ "behind" ]]; then
+        local behind=" $RED$(echo $git_status | sed -E -e "s/^.*behind ([0-9]+).*$/\1/")↓"
+    fi
+    if [[ $git_status =~ "..." ]]; then
+        local state=" ⚡"
+    fi
+    echo "$GREEN$branch$state$ahead$behind"
 }
 
 export CLICOLOR=1
-export PS1="\[$WHITE\][ \[$GRAY\]\u \[$ORANGE\]\w \[$GREEN\]\$(parse_git_branch)\[$RESET\]] "
+function prompt_func () {
+    prompt="$RESET[ $ORANGE\w `parse_git_branch`$RESET ] "
+    PS1="${prompt}"
+}
+PROMPT_COMMAND=prompt_func
 
 # loading bash_aliases if present
 if [ -f ~/.bash_aliases ]; then
