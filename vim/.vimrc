@@ -59,10 +59,13 @@ let g:ctrlp_max_files=100000
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v(.git|web|cache|vendor|node_modules|lib|tmp|bin|var|test|docs|build|_site)$',
+  \ 'dir':  '\v(.git|web|cache|vendor|node_modules|lib|tmp|bin|var|test|docs|build|_site|Proxy)$',
   \ }
 
 let mapleader                       = ","
+
+"hardmode
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
 "Syntastic
 let g:syntastic_javascript_checkers=['eslint']
