@@ -43,6 +43,6 @@
 [submodule "bash/themes/smyck"]
 	path = bash/themes/smyck
 	url = https://github.com/hukl/Smyck-Color-Scheme.git
-[submodule "vim/.vim/bundle/hardmode"]
-	path = vim/.vim/bundle/hardmode
-	url = https://github.com/wikitopian/hardmode.git
+[submodule "vim/.vim/bundle/hardtime"]
+	path = vim/.vim/bundle/hardtime
+	url = https://github.com/takac/vim-hardtime.git

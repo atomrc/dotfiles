@@ -35,9 +35,9 @@ set nocp
 set wildmenu  " show list instead of just completing
 set wildmode=list:longest,full
 
-set foldenable          " auto fold code
-set foldmethod=marker
-set foldmarker={,}
+"set foldenable          " auto fold code
+"set foldmethod=marker
+"set foldmarker={,}
 
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:. " Highlight problematic whitespace
