@@ -64,8 +64,8 @@ let g:ctrlp_custom_ignore = {
 
 let mapleader                       = ","
 
-"hardmode
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+"hardtime
+let g:hardtime_default_on = 1
 
 "Syntastic
 let g:syntastic_javascript_checkers=['eslint']
