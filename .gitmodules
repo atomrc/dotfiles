@@ -43,3 +43,6 @@
 [submodule "vim/.vim/bundle/hardtime"]
 	path = vim/.vim/bundle/hardtime
 	url = https://github.com/takac/vim-hardtime.git
+[submodule "vim/.vim/bundle/ack.vim"]
+	path = vim/.vim/bundle/ack.vim
+	url = https://github.com/mileszs/ack.vim
