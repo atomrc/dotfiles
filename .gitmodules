@@ -37,9 +37,6 @@
 [submodule "vim/.vim/bundle/jsdoc"]
 	path = vim/.vim/bundle/jsdoc
 	url = https://github.com/heavenshell/vim-jsdoc.git
-[submodule "vim/.vim/bundle/ternjs.vim"]
-	path = vim/.vim/bundle/ternjs.vim
-	url = https://github.com/marijnh/tern_for_vim.git
 [submodule "bash/themes/smyck"]
 	path = bash/themes/smyck
 	url = https://github.com/hukl/Smyck-Color-Scheme.git
