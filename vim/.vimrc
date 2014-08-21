@@ -15,6 +15,7 @@ set ts=4
 set scrolloff =3                   " Show 3 lines of context around the cursor.
 
 set ruler
+set number
 set cursorline
 
 set backspace=indent,eol,start
