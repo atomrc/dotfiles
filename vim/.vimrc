@@ -63,7 +63,7 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v(.git|web|cache|vendor|node_modules|lib|tmp|bin|var|test|docs|build|_site|Proxy)$',
   \ }
 
-let mapleader                       = ","
+let mapleader = ","
 
 "hardtime
 let g:hardtime_default_on = 1
@@ -82,6 +82,7 @@ au BufRead,BufNewFile *.php nnoremap <buffer> <leader>p :call PhpDoc()<CR>
 au BufRead,BufNewFile *.php nnoremap <buffer> <leader>u :call PhpInsertUse()<CR>
 
 map <leader>s :call SourceCustomVim()<CR>
+map <leader>f :Ack<CR>
 
 function SourceCustomVim()
     if filereadable(".vim.custom")
