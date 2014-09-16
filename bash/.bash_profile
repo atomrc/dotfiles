@@ -8,29 +8,29 @@ RED="\[\e[0;31m\]"
 RESET="\[\e[0m\]"
 
 function parse_git_branch () {
-    local git_status="$(git status -sb 2> /dev/null | sed -E -e '/^[^#]/d')"
-    local branch="$(echo $git_status | sed -E -e "s/^## ([^\.]*).*$/\1/")"
-    git rev-parse --git-dir &> /dev/null
-    if [ "$?" -ne 0 ]; then
-        echo ""
-        return
-    fi
+    local git_status="$(git status -sb -uno 2> /dev/null | sed -E -e '/^[^#]/d')";
+    local branch="$(echo $git_status | sed -E -e "s/^## ([^\.]*).*$/\1/")";
     if [[ $git_status =~ "ahead" ]]; then
-        local ahead=" $WHITE$(echo $git_status | sed -E -e "s/^.*ahead ([0-9]+).*$/\1/")↑"
+        local ahead=" $WHITE$(echo $git_status | sed -E -e "s/^.*ahead ([0-9]+).*$/\1/")↑";
     fi
     if [[ $git_status =~ "behind" ]]; then
-        local behind=" $RED$(echo $git_status | sed -E -e "s/^.*behind ([0-9]+).*$/\1/")↓"
+        local behind=" $RED$(echo $git_status | sed -E -e "s/^.*behind ([0-9]+).*$/\1/")↓";
     fi
     if [[ $git_status =~ "..." ]]; then
-        local state=" ⚡"
+        local state=" ⚡";
     fi
-    echo " $GREEN$branch$state$ahead$behind"
+    echo " $GREEN$branch$state$ahead$behind";
 }
 
 export CLICOLOR=1
 function prompt_func () {
-    prompt="$RESET[ $ORANGE\w`parse_git_branch`$RESET ] "
-    PS1="${prompt}"
+    local gitinfos="";
+    git rev-parse --git-dir &> /dev/null
+    if [ $? == 0 ]; then
+        gitinfos=`parse_git_branch`;
+    fi
+    prompt="$RESET[ $ORANGE\w$gitinfos$RESET ] ";
+    PS1="${prompt}";
 }
 PROMPT_COMMAND=prompt_func
 
