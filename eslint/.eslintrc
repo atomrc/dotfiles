@@ -1,0 +1,5 @@
+rules:
+    block-scoped-var: 1
+    no-warning-comments: 1
+    radix: 1
+    valid-jsdoc: 1
