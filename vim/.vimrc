@@ -84,6 +84,9 @@ au BufRead,BufNewFile *.php nnoremap <buffer> <leader>u :call PhpInsertUse()<CR>
 map <leader>s :call SourceCustomVim()<CR>
 map <leader>f :Ack<CR>
 
+"emmet
+au BufRead,BufNewFile *.html,*.css,*.twig map <buffer> <leader>e <c-y>,
+
 function SourceCustomVim()
     if filereadable(".vim.custom")
         so .vim.custom
