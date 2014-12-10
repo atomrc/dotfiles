@@ -13,3 +13,5 @@
     ft = fetch -p
     co = checkout
     oups = commit --amend -C HEAD
+[rerere]
+	enabled = true
