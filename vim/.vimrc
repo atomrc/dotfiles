@@ -87,8 +87,11 @@ map <leader>f :Ack<CR>
 "emmet
 au BufRead,BufNewFile *.html,*.css,*.twig map <buffer> <leader>e <c-y>,
 
+au BufRead,BufNewFile * call SourceCustomVim()
+
 function SourceCustomVim()
-    if filereadable(".vim.custom")
-        so .vim.custom
+    if filereadable(".vimrc.custom")
+        so .vimrc.custom
+        echo "custom config file loaded"
     endif
 endfunction
