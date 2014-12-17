@@ -12,6 +12,7 @@
     df = diff --color
     ft = fetch -p
     co = checkout
+    ap = add -p
     oups = commit --amend -C HEAD
 [rerere]
 	enabled = true
