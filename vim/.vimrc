@@ -44,8 +44,11 @@ set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:. " Highlight problematic whitespace
 
 "mappings
-map <C-j> g]
+let mapleader = ","
 
+map <C-j> g]
+"delete the block the cursor is in
+nnoremap <leader>b [{V%d
 imap jk <Esc>
 
 color molokai
@@ -63,8 +66,6 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v(.git|web|cache|vendor|node_modules|lib|tmp|bin|var|test|docs|build|_site|Proxy)$',
   \ }
 
-let mapleader = ","
-
 "hardtime
 let g:hardtime_default_on = 1
 
@@ -76,13 +77,10 @@ let g:syntastic_always_populate_loc_list=1
 let g:jsdoc_return = 1
 let g:jsdoc_additional_descriptions = 0
 au BufRead,BufNewFile *.js nnoremap <buffer> <leader>p :JsDoc<CR>
+"
 "phpdoc
 au BufRead,BufNewFile *.php nnoremap <buffer> <leader>p :call PhpDoc()<CR>
-
 au BufRead,BufNewFile *.php nnoremap <buffer> <leader>u :call PhpInsertUse()<CR>
-
-map <leader>s :call SourceCustomVim()<CR>
-map <leader>f :Ack<CR>
 
 "emmet
 au BufRead,BufNewFile *.html,*.css,*.twig map <buffer> <leader>e <c-y>,
