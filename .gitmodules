@@ -55,3 +55,6 @@
 [submodule "vim/.vim/bundle/localvimrc"]
 	path = vim/.vim/bundle/localvimrc
 	url = https://github.com/embear/vim-localvimrc
+[submodule "vim/.vim/bundle/vim-elm"]
+	path = vim/.vim/bundle/vim-elm
+	url = https://github.com/lambdatoast/elm.vim
