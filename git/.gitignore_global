@@ -5,3 +5,4 @@ tags
 tags.sh
 .vim.custom
 .tern-project
+node_modules
