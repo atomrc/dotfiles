@@ -1,6 +1,6 @@
 PROJECT_PATH=~/.dotfiles
 
-.PHONY: bash vim git eslint
+.PHONY: bash vim git eslint tmux
 
 all: bash vim git eslint
 
@@ -19,6 +19,9 @@ git:
 	ln -s $(PROJECT_PATH)/git/.gitconfig ~/.gitconfig
 	ln -s $(PROJECT_PATH)/git/.gitignore_global ~/.gitignore_global
 
+tmux:
+	ln -s $(PROJECT_PATH)/tmux/.tmux.conf ~/.tmux.conf
+
 clean:
 	rm ~/.bash_profile
 	rm ~/.bash_aliases
@@ -27,3 +30,4 @@ clean:
 	rm ~/.gitconfig
 	rm ~/.gitignore_global
 	rm ~/.eslintrc
+	rm ~/.tmux.conf
