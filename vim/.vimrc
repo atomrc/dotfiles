@@ -67,7 +67,7 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 "hardtime
-let g:hardtime_default_on = 1
+"let g:hardtime_default_on = 1
 
 "Syntastic
 let g:syntastic_javascript_checkers=['eslint']
