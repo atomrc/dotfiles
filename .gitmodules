@@ -58,3 +58,6 @@
 [submodule "vim/.vim/bundle/vim-elm"]
 	path = vim/.vim/bundle/vim-elm
 	url = https://github.com/lambdatoast/elm.vim
+[submodule "vim/.vim/bundle/vim-markdown"]
+	path = vim/.vim/bundle/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown
