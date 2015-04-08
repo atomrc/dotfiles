@@ -36,3 +36,4 @@ function parse_git_branch () {
 
 setopt PROMPT_SUBST
 PROMPT='[ ${YELLOW}%2c$(parse_git_branch)${RESET} ] '
+RPROMPT='%*'
