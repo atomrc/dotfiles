@@ -7,6 +7,8 @@ setopt autocd
 bindkey -v
 bindkey '^r' history-incremental-search-backward
 
+export PATH="/usr/local/bin:$PATH"
+
 alias ll='ls -al'
 
 for COLOR in RED GREEN YELLOW BLUE MAGENTA CYAN BLACK WHITE; do
