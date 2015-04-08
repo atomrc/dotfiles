@@ -3,7 +3,9 @@ HISTSIZE=1000
 SAVEHIST=1000
 autoload -U colors && colors
 setopt autocd
+
 bindkey -v
+bindkey '^r' history-incremental-search-backward
 
 alias ll='ls -al'
 
