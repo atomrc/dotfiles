@@ -1,12 +1,15 @@
 PROJECT_PATH=~/.dotfiles
 
-.PHONY: bash vim git eslint tmux
+.PHONY: bash zsh vim git eslint tmux
 
-all: bash vim git eslint
+all: bash zsh vim git eslint
 
 bash:
 	ln -s $(PROJECT_PATH)/bash/.bash_profile ~/.bash_profile
 	ln -s $(PROJECT_PATH)/bash/.bash_aliases ~/.bash_aliases
+
+zsh:
+	ln -s $(PROJECT_PATH)/zsh/.zshrc ~/.zshrc
 
 eslint:
 	ln -s $(PROJECT_PATH)/eslint/.eslintrc ~/.eslintrc
@@ -25,6 +28,7 @@ tmux:
 clean:
 	rm ~/.bash_profile
 	rm ~/.bash_aliases
+	rm ~/.zshrc
 	rm -rf ~/.vim
 	rm ~/.vimrc
 	rm ~/.gitconfig
