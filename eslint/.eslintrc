@@ -1,7 +1,8 @@
+ecmaFeatures:
+    arrowFunctions: 1
+    jsx: 1
 rules:
     block-scoped-var: 1
     no-warning-comments: 1
     radix: 1
     valid-jsdoc: 1
-    arrowFunctions: 1
-    jsx: 1
