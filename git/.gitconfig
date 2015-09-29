@@ -9,7 +9,7 @@
 [alias]
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
     st = status -sb
-    df = diff --color
+    df = diff --color --abbrev
     ft = fetch -p
     co = checkout
     ap = add -p
