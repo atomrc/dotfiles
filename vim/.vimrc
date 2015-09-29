@@ -86,3 +86,5 @@ au BufRead,BufNewFile *.php nnoremap <buffer> <leader>u :call PhpInsertUse()<CR>
 
 "emmet
 au BufRead,BufNewFile *.html,*.css,*.twig map <buffer> <leader>e <c-y>,
+
+"source ~/.vimrc.bepo
