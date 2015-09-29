@@ -5,6 +5,7 @@ PROJECT_PATH=~/.dotfiles
 all: bash zsh vim git eslint
 
 bash:
+	ln -s $(PROJECT_PATH)/bash/.bashrc ~/.bashrc
 	ln -s $(PROJECT_PATH)/bash/.bash_profile ~/.bash_profile
 	ln -s $(PROJECT_PATH)/bash/.bash_aliases ~/.bash_aliases
 
@@ -20,6 +21,7 @@ vim:
 
 git:
 	ln -s $(PROJECT_PATH)/git/.gitconfig ~/.gitconfig
+	ln -s $(PROJECT_PATH)/git/.git-completion.bash ~/.git-completion.bash
 	ln -s $(PROJECT_PATH)/git/.gitignore_global ~/.gitignore_global
 
 tmux:
@@ -28,10 +30,12 @@ tmux:
 clean:
 	rm ~/.bash_profile
 	rm ~/.bash_aliases
+	rm ~/.bashrc
 	rm ~/.zshrc
 	rm -rf ~/.vim
 	rm ~/.vimrc
 	rm ~/.gitconfig
 	rm ~/.gitignore_global
+	rm ~/.git-completion.bash
 	rm ~/.eslintrc
 	rm ~/.tmux.conf
