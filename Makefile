@@ -2,7 +2,7 @@ PROJECT_PATH=~/.dotfiles
 
 .PHONY: bash zsh vim git eslint tmux
 
-all: bash zsh vim git eslint
+all: bash zsh vim git eslint tmux
 
 bash:
 	ln -s $(PROJECT_PATH)/bash/.bashrc ~/.bashrc
