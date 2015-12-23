@@ -1,34 +1,28 @@
 set nocompatible
-filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
+call plug#begin("~/.vim/bundle")
+Plug 'kien/ctrlp.vim'
+Plug 'pangloss/vim-javascript'
+Plug 'tomasr/molokai'
+Plug 'ervandew/supertab'
+Plug 'spf13/PIV'
+Plug 'sumpygump/php-documentor-vim'
+Plug 'beyondwords/vim-twig'
+Plug 'arnaud-lb/vim-php-namespace'
+Plug 'digitaltoad/vim-jade'
+Plug 'tpope/vim-surround'
+Plug 'scrooloose/syntastic'
+"Plug 'msanders/snipmate.vim'
+Plug 'heavenshell/vim-jsdoc'
+Plug 'mileszs/ack.vim'
+Plug 'embear/vim-localvimrc'
+Plug 'mattn/emmet-vim'
+Plug 'godlygeek/tabular'
+"Plug 'lambdatoast/elm.vim'
+"Plug 'plasticboy/vim-markdown'
+call plug#end()
 
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'kien/ctrlp.vim.git'
-Plugin 'pangloss/vim-javascript.git'
-Plugin 'tomasr/molokai.git'
-Plugin 'ervandew/supertab.git'
-Plugin 'spf13/PIV.git'
-Plugin 'sumpygump/php-documentor-vim.git'
-Plugin 'beyondwords/vim-twig.git'
-Plugin 'arnaud-lb/vim-php-namespace.git'
-Plugin 'digitaltoad/vim-jade.git'
-Plugin 'tpope/vim-surround.git'
-Plugin 'scrooloose/syntastic.git'
-Plugin 'msanders/snipmate.vim.git'
-Plugin 'heavenshell/vim-jsdoc.git'
-Plugin 'mileszs/ack.vim'
-Plugin 'embear/vim-localvimrc'
-Plugin 'mattn/emmet-vim.git'
-Plugin 'godlygeek/tabular.git'
-"Plugin 'lambdatoast/elm.vim'
-"Plugin 'plasticboy/vim-markdown'
-
-call vundle#end()
 filetype plugin indent on
-
 syntax on
 set showmode
 set showcmd
