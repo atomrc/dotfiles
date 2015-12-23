@@ -1,60 +1,6 @@
-[submodule "vim/.vim/bundle/tabular"]
-	path = vim/.vim/bundle/tabular
-	url = git://github.com/godlygeek/tabular.git
-[submodule "vim/.vim/bundle/ctrlp"]
-	path = vim/.vim/bundle/ctrlp
-	url = git://github.com/kien/ctrlp.vim.git
-[submodule "vim/.vim/bundle/molokai"]
-	path = vim/.vim/bundle/molokai
-	url = git://github.com/tomasr/molokai.git
-[submodule "vim/.vim/bundle/supertab"]
-	path = vim/.vim/bundle/supertab
-	url = git://github.com/ervandew/supertab.git
-[submodule "vim/.vim/bundle/piv"]
-	path = vim/.vim/bundle/piv
-	url = https://github.com/spf13/PIV.git
-[submodule "vim/.vim/bundle/phpdoc"]
-	path = vim/.vim/bundle/phpdoc
-	url = https://github.com/sumpygump/php-documentor-vim.git
-[submodule "vim/.vim/bundle/vim-twig"]
-	path = vim/.vim/bundle/vim-twig
-	url = https://github.com/beyondwords/vim-twig.git
-[submodule "vim/.vim/bundle/php-namespace"]
-	path = vim/.vim/bundle/php-namespace
-	url = https://github.com/arnaud-lb/vim-php-namespace.git
-[submodule "vim/.vim/bundle/vim-jade"]
-	path = vim/.vim/bundle/vim-jade
-	url = git://github.com/digitaltoad/vim-jade.git
-[submodule "vim/.vim/bundle/surround"]
-	path = vim/.vim/bundle/surround
-	url = git://github.com/tpope/vim-surround.git
-[submodule "vim/.vim/bundle/syntastic"]
-	path = vim/.vim/bundle/syntastic
-	url = https://github.com/scrooloose/syntastic.git
-[submodule "vim/.vim/bundle/snipmate.vim"]
-	path = vim/.vim/bundle/snipmate.vim
-	url = https://github.com/msanders/snipmate.vim.git
-[submodule "vim/.vim/bundle/jsdoc"]
-	path = vim/.vim/bundle/jsdoc
-	url = https://github.com/heavenshell/vim-jsdoc.git
 [submodule "bash/themes/smyck"]
 	path = bash/themes/smyck
 	url = https://github.com/hukl/Smyck-Color-Scheme.git
-[submodule "vim/.vim/bundle/hardtime"]
-	path = vim/.vim/bundle/hardtime
-	url = https://github.com/takac/vim-hardtime.git
-[submodule "vim/.vim/bundle/ack.vim"]
-	path = vim/.vim/bundle/ack.vim
-	url = https://github.com/mileszs/ack.vim
-[submodule "vim/.vim/bundle/emmet"]
-	path = vim/.vim/bundle/emmet
-	url = https://github.com/mattn/emmet-vim.git
-[submodule "vim/.vim/bundle/localvimrc"]
-	path = vim/.vim/bundle/localvimrc
-	url = https://github.com/embear/vim-localvimrc
-[submodule "vim/.vim/bundle/vim-elm"]
-	path = vim/.vim/bundle/vim-elm
-	url = https://github.com/lambdatoast/elm.vim
-[submodule "vim/.vim/bundle/vim-markdown"]
-	path = vim/.vim/bundle/vim-markdown
-	url = https://github.com/plasticboy/vim-markdown
+[submodule "vim/.vim/bundle/Vundle.vim"]
+	path = vim/.vim/bundle/Vundle.vim
+	url = https://github.com/VundleVim/Vundle.vim.git

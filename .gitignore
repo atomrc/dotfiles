@@ -1,5 +1,2 @@
-*.swp
-*\~
-.VimBallRecord
-.DS_Store
-.netrwhist
+vim/.vim/bundle/*
+!vim/.vim/bundle/Vundle.vim

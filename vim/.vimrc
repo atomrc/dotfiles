@@ -1,10 +1,37 @@
-call pathogen#infect()
 set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'kien/ctrlp.vim.git'
+Plugin 'pangloss/vim-javascript.git'
+Plugin 'tomasr/molokai.git'
+Plugin 'ervandew/supertab.git'
+Plugin 'spf13/PIV.git'
+Plugin 'sumpygump/php-documentor-vim.git'
+Plugin 'beyondwords/vim-twig.git'
+Plugin 'arnaud-lb/vim-php-namespace.git'
+Plugin 'digitaltoad/vim-jade.git'
+Plugin 'tpope/vim-surround.git'
+Plugin 'scrooloose/syntastic.git'
+Plugin 'msanders/snipmate.vim.git'
+Plugin 'heavenshell/vim-jsdoc.git'
+Plugin 'mileszs/ack.vim'
+Plugin 'embear/vim-localvimrc'
+Plugin 'mattn/emmet-vim.git'
+Plugin 'godlygeek/tabular.git'
+"Plugin 'lambdatoast/elm.vim'
+"Plugin 'plasticboy/vim-markdown'
+
+call vundle#end()
+filetype plugin indent on
+
 syntax on
 set showmode
 set showcmd
-
-filetype plugin on
 
 set encoding=utf8
 set fileencoding=utf8
@@ -76,8 +103,8 @@ let g:syntastic_javascript_checkers=['eslint']
 let g:syntastic_always_populate_loc_list=1
 
 "jsDoc
-let g:jsdoc_return = 1
-let g:jsdoc_additional_descriptions = 0
+let g:jsdoc_allow_input_prompt=1
+let g:jsdoc_input_description=1
 au BufRead,BufNewFile *.js nnoremap <buffer> <leader>p :JsDoc<CR>
 "
 "phpdoc
