@@ -21,10 +21,10 @@ zsh-clean:
 	-rm ~/.zshrc
 
 eslint:
-	ln -s $(PROJECT_PATH)/eslint/.eslintrc.yml ~/.eslintrc.yml
+	ln -s $(PROJECT_PATH)/eslint/.eslintrc ~/.eslintrc
 
 eslint-clean:
-	-rm ~/.eslintrc.yml
+	-rm ~/.eslintrc
 
 vim:
 	ln -s $(PROJECT_PATH)/vim/.vimrc ~/.vimrc

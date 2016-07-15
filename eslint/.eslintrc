@@ -1,0 +1,17 @@
+{
+    "extends": "defaults",
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module"
+    },
+    "rules": {
+        "block-scoped-var": 1,
+        "no-warning-comments": 1,
+        "radix": 1,
+        "valid-jsdoc": 1
+    }
+}
