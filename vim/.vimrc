@@ -1,20 +1,22 @@
 set nocompatible
 
 call plug#begin("~/.vim/bundle")
-Plug 'kien/ctrlp.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'scrooloose/syntastic'
 Plug 'tomasr/molokai'
-Plug 'ervandew/supertab'
 Plug 'tpope/vim-surround'
-Plug 'ternjs/tern_for_vim'
-""Plug 'pangloss/vim-javascript'
+Plug 'Shougo/deoplete.nvim'
+Plug 'carlitux/deoplete-ternjs'
 Plug 'jelera/vim-javascript-syntax'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'spf13/PIV'
 Plug 'beyondwords/vim-twig'
 Plug 'plasticboy/vim-markdown'
 Plug 'mattn/emmet-vim'
+"Plug 'ervandew/supertab'
+"Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
+"Plug 'pangloss/vim-javascript'
 "Plug 'embear/vim-localvimrc'
 "Plug 'digitaltoad/vim-jade'
 "Plug 'godlygeek/tabular'
@@ -51,7 +53,7 @@ set hlsearch   "highlight search terms
 set ignorecase "case insensitive search
 set smartcase
 
-set cryptmethod=blowfish
+"set cryptmethod=blowfish
 
 set wildmenu  "show list instead of just completing
 set wildmode=list:longest,full
@@ -84,9 +86,15 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v(.git|web|cache|vendor|node_modules|lib|tmp|bin|var|test|docs|build|_site|Proxy)$',
   \ }
 
-"supertab
-let g:SuperTabDefaultCompletionType = "context"
-let g:SuperTabContextDefaultCompletionType = "<C-X><C-O>"
+"deoplete
+let g:deoplete#enable_at_startup = 1
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+inoremap <silent><expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+
+"tern
+let g:tern_show_argument_hints = 'on_hold'
+let g:tern_show_signature_in_pum = 1
+let g:tern_request_timeout = 1
 
 "Syntastic
 let g:syntastic_javascript_checkers=['eslint']
