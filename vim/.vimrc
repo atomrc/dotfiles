@@ -3,17 +3,18 @@ set nocompatible
 call plug#begin("~/.vim/bundle")
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'mileszs/ack.vim'
-Plug 'scrooloose/syntastic'
 Plug 'tomasr/molokai'
 Plug 'tpope/vim-surround'
+Plug 'neomake/neomake'
 Plug 'Shougo/deoplete.nvim'
-Plug 'carlitux/deoplete-ternjs'
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm -g install tern' }
 Plug 'jelera/vim-javascript-syntax'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'spf13/PIV'
 Plug 'beyondwords/vim-twig'
 Plug 'plasticboy/vim-markdown'
 Plug 'mattn/emmet-vim'
+"Plug 'scrooloose/syntastic'
 "Plug 'ervandew/supertab'
 "Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 "Plug 'pangloss/vim-javascript'
@@ -96,9 +97,10 @@ let g:tern_show_argument_hints = 'on_hold'
 let g:tern_show_signature_in_pum = 1
 let g:tern_request_timeout = 1
 
-"Syntastic
-let g:syntastic_javascript_checkers=['eslint']
-let g:syntastic_always_populate_loc_list=1
+"Neomake
+let g:neomake_javascript_enabled_makers=['eslint']
+let g:neomake_php_enabled_makers=['php', 'phpmd']
+autocmd! BufWritePost * Neomake
 
 "jsDoc
 let g:jsdoc_allow_input_prompt=1
