@@ -71,6 +71,7 @@ let mapleader = ","
 
 map <C-j> g]
 imap jk <Esc>
+nmap <leader>s :syntax sync fromStart<CR>
 
 color molokai
 
@@ -99,7 +100,7 @@ let g:tern_request_timeout = 1
 
 "Neomake
 let g:neomake_javascript_enabled_makers=['eslint']
-let g:neomake_php_enabled_makers=['php', 'phpmd']
+let g:neomake_php_enabled_makers=['php']
 autocmd! BufWritePost * Neomake
 
 "jsDoc
