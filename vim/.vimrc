@@ -14,6 +14,8 @@ Plug 'spf13/PIV'
 Plug 'beyondwords/vim-twig'
 Plug 'plasticboy/vim-markdown'
 Plug 'mattn/emmet-vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'junegunn/goyo.vim'
 "Plug 'scrooloose/syntastic'
 "Plug 'ervandew/supertab'
 "Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
@@ -65,6 +67,9 @@ set foldmarker={,}
 
 set list
 set listchars=tab:>.,trail:.,extends:#,nbsp:. " Highlight problematic whitespace
+
+"disable matchit plugin
+let loaded_matchit = 1
 
 "mappings
 let mapleader = ","
