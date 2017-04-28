@@ -2,7 +2,7 @@ set nocompatible
 
 call plug#begin("~/.vim/bundle")
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'mileszs/ack.vim'
+Plug 'jremmen/vim-ripgrep'
 Plug 'tomasr/molokai'
 Plug 'sickill/vim-monokai'
 Plug 'tpope/vim-surround'
@@ -18,6 +18,7 @@ Plug 'mattn/emmet-vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/goyo.vim'
 Plug 'jamessan/vim-gnupg'
+Plug 'arnaud-lb/vim-php-namespace'
 "Plug 'scrooloose/syntastic'
 "Plug 'ervandew/supertab'
 "Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
@@ -109,6 +110,11 @@ let g:tern_request_timeout = 1
 let g:neomake_javascript_enabled_makers=['eslint']
 let g:neomake_php_enabled_makers=['php', 'phpmd']
 autocmd! BufWritePost * Neomake
+
+"php-namespace
+autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
+autocmd FileType php noremap <Leader>u :call PhpInsertUse()<CR>
+
 
 "jsDoc
 let g:jsdoc_allow_input_prompt=1
