@@ -1,8 +1,10 @@
 *~
 *.swp
 .DS_Store
+.ctags
 tags
 tags.sh
 .vim.custom
 .tern-project
+.tern-port
 node_modules
