@@ -3,7 +3,7 @@
     email = thomasbelin4@gmail.com
 [core]
     excludesfile = ~/.gitignore_global
-    editor = /usr/bin/vim
+    editor = /usr/bin/nvim
 [push]
     default = current
 [alias]
