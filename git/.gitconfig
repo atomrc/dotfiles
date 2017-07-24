@@ -1,6 +1,6 @@
 [user]
-    name = Thomas Belin
-    email = thomasbelin4@gmail.com
+	name = Thomas Belin
+    email = me@thomasbelin.fr
 [core]
     excludesfile = ~/.gitignore_global
     editor = /usr/bin/nvim
