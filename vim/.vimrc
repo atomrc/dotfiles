@@ -6,9 +6,12 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'tomasr/molokai'
 Plug 'sickill/vim-monokai'
 Plug 'tpope/vim-surround'
-Plug 'neomake/neomake'
-Plug 'Shougo/deoplete.nvim'
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm -g install tern' }
+Plug 'w0rp/ale'
+"Plug 'neomake/neomake'
+Plug 'roxma/nvim-completion-manager'
+Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
+"Plug 'Shougo/deoplete.nvim'
+"Plug 'carlitux/deoplete-ternjs', { 'do': 'npm -g install tern' }
 Plug 'jelera/vim-javascript-syntax'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'spf13/PIV'
@@ -19,13 +22,15 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/goyo.vim'
 Plug 'jamessan/vim-gnupg'
 Plug 'arnaud-lb/vim-php-namespace'
-"Plug 'scrooloose/syntastic'
+Plug 'leafgarland/typescript-vim'
+Plug 'godlygeek/tabular'
+
+"Plug 'trevordmiller/nova-vim'
 "Plug 'ervandew/supertab'
 "Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
 "Plug 'pangloss/vim-javascript'
 "Plug 'embear/vim-localvimrc'
 "Plug 'digitaltoad/vim-jade'
-"Plug 'godlygeek/tabular'
 "Plug 'lambdatoast/elm.vim'
 call plug#end()
 
@@ -81,7 +86,8 @@ map <C-j> g]
 imap jk <Esc>
 nmap <leader>s :syntax sync fromStart<CR>
 
-color molokai
+colorscheme molokai
+"colorscheme nova
 
 "PLUGINS
 "CtrlP
@@ -93,7 +99,7 @@ let g:ctrlp_max_files=100000
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v(.git|web|cache|vendor|node_modules|lib|tmp|bin|var|test|docs|build|_site|Proxy)$',
+  \ 'dir':  '\v(.git|web|cache|vendor|node_modules|lib|tmp|bin|var|test|docs|build|_site|Proxy|assets)$',
   \ }
 
 "deoplete
@@ -107,9 +113,9 @@ let g:tern_show_signature_in_pum = 1
 let g:tern_request_timeout = 1
 
 "Neomake
-let g:neomake_javascript_enabled_makers=['eslint']
-let g:neomake_php_enabled_makers=['php', 'phpmd']
-autocmd! BufWritePost * Neomake
+"let g:neomake_javascript_enabled_makers=['eslint']
+"let g:neomake_php_enabled_makers=['php', 'phpmd']
+"autocmd! BufWritePost * Neomake
 
 "php-namespace
 autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
