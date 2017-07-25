@@ -1,0 +1,97 @@
+set global tabstop 4
+set global indentwidth 4
+set global scrolloff 5,1
+
+map global insert <tab> '<a-;><a-gt>'
+map global insert <backtab> '<a-;><a-lt>'
+
+colorscheme github
+set global grepcmd 'rg --column'
+
+map global user b :fzf-buffer<ret> -docstring 'FZF buffer'
+map global user f :fzf-file<ret> -docstring 'FZF file'
+map global user j :ctags-search<ret> -docstring 'ctags jump to'
+
+hook global InsertChar k %{ try %{
+  exec -draft hH <a-k>jk<ret> d
+  exec <esc>
+}}
+
+addhl -group / group trailing_white_spaces
+addhl -group /trailing_white_spaces regex \h+$ 0:Error
+
+# editorconfig
+hook global BufCreate .* %{editorconfig-load}
+
+def -docstring 'invoke fzf to open a file' \
+  fzf-file %{ %sh{
+    if [ -z "$TMUX" ]; then
+      echo echo only works inside tmux
+    else
+      FILE=$(rg --files --glob "" | fzf-tmux -d 15)
+      if [ -n "$FILE" ]; then
+        printf 'eval -client %%{%s} edit %%{%s}\n' "${kak_client}" "${FILE}" | kak -p "${kak_session}"
+      fi
+    fi
+} }
+
+def -docstring 'invoke fzf to select a buffer' \
+  fzf-buffer %{ %sh{
+    if [ -z "$TMUX" ]; then
+      echo echo only works inside tmux
+    else
+      BUFFER=$(printf %s\\n "${kak_buflist}" | tr : '\n' | fzf-tmux -d 15)
+      if [ -n "$BUFFER" ]; then
+        echo "eval -client '$kak_client' 'buffer ${BUFFER}'" | kak -p ${kak_session}
+      fi
+    fi
+} }
+
+# autocompletion
+
+hook global InsertCompletionShow .* %{
+  map window insert <tab> <c-n>
+  map window insert <backtab> <c-p>
+}
+
+hook global InsertCompletionHide .* %{
+  unmap window insert <tab> <c-n>
+  unmap window insert <backtab> <c-p>
+}
+
+
+# highlighters
+decl -hidden regex curword
+
+hook global NormalIdle .* %{
+    eval -draft %{ try %{
+        exec <space><a-i>w <a-k>\`\w+\'<ret>
+        set buffer curword "\b\Q%val{selection}\E\b"
+    } catch %{
+        set buffer curword ''
+    } }
+}
+
+hook global WinCreate .* %{
+  addhl show_matching
+  #addhl show_whitespaces
+  addhl number_lines -relative -hlcursor
+  addhl dynregex '%reg{/}' 0:+u 1:+b
+
+  # Highlight the word under the cursor
+  addhl dynregex '%opt{curword}' 0:+u
+}
+
+# filetypes
+hook global WinSetOption filetype=javascript %{
+  set window lintcmd 'eslint -f ~/.config/kak/eslint-kakoune.js'
+  lint-enable
+}
+
+hook global WinSetOption filetype=typescript %{
+  set window lintcmd 'eslint -f ~/.config/kak/eslint-kakoune.js'
+  lint-enable
+}
+
+# local config file
+try %{ source .config.kak }

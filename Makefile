@@ -1,6 +1,6 @@
 PROJECT_PATH=~/.dotfiles
 
-.PHONY: bash zsh vim git eslint tmux
+.PHONY: bash zsh vim git eslint tmux kakoune
 
 all: bash zsh vim git eslint tmux
 
@@ -14,6 +14,12 @@ bash-clean:
 	-rm ~/.bash_aliases
 	-rm ~/.bashrc
 
+kakoune:
+	ln -s $(PROJECT_PATH)/kakoune ~/.config/kak
+
+kakoun-clean:
+	-rm ~/.config/kak
+	
 zsh:
 	ln -s $(PROJECT_PATH)/zsh/.zshrc ~/.zshrc
 
