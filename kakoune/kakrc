@@ -48,7 +48,6 @@ def -docstring 'invoke fzf to select a buffer' \
 } }
 
 # autocompletion
-
 hook global InsertCompletionShow .* %{
   map window insert <tab> <c-n>
   map window insert <backtab> <c-p>
@@ -79,7 +78,7 @@ hook global WinCreate .* %{
   addhl dynregex '%reg{/}' 0:+u 1:+b
 
   # Highlight the word under the cursor
-  addhl dynregex '%opt{curword}' 0:+u
+  addhl dynregex '%opt{curword}' 0:+b
 }
 
 # filetypes
