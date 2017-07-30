@@ -12,6 +12,10 @@ map global user b :fzf-buffer<ret> -docstring 'FZF buffer'
 map global user f :fzf-file<ret> -docstring 'FZF file'
 map global user j :ctags-search<ret> -docstring 'ctags jump to'
 
+hook global WinSetOption filetype=(java|type)script %{
+  map global user d ':jsdoc<ret>' -docstring "Generate jsdoc for current function"
+}
+
 hook global InsertChar k %{ try %{
   exec -draft hH <a-k>jk<ret> d
   exec <esc>
