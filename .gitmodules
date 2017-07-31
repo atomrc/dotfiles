@@ -4,3 +4,6 @@
 [submodule "kakoune/autoload/kakoune-typescript"]
 	path = kakoune/autoload/kakoune-typescript
 	url = git@github.com:atomrc/kakoune-typescript.git
+[submodule "kakoune/autoload/kakoune-jsdoc"]
+	path = kakoune/autoload/kakoune-jsdoc
+	url = git@github.com:atomrc/kakoune-jsdoc.git
