@@ -10,12 +10,17 @@ set global grepcmd 'rg --column'
 
 map global user b :fzf-buffer<ret> -docstring 'FZF buffer'
 map global user f :fzf-file<ret> -docstring 'FZF file'
-map global user j :ctags-search<ret> -docstring 'ctags jump to'
+map global user j %{ <a-i>w :ctags-search<ret> } -docstring 'ctags jump to'
+map global user p '!xclip -o<ret>' -docstring 'paste from selection clipboard'
+map global user P '<a-!>xclip -o<ret>' -docstring 'paste after from selection clipboard'
+map global user y '<a-|>xclip<ret>' -docstring 'yank current selection to clipboard"
 
+# enable jsdoc with the ,d key
 hook global WinSetOption filetype=(java|type)script %{
   map global user d ':jsdoc<ret>' -docstring "Generate jsdoc for current function"
 }
 
+# jk to escape
 hook global InsertChar k %{ try %{
   exec -draft hH <a-k>jk<ret> d
   exec <esc>
