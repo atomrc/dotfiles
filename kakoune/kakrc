@@ -5,7 +5,7 @@ set global scrolloff 5,1
 map global insert <tab> '<a-;><a-gt>'
 map global insert <backtab> '<a-;><a-lt>'
 
-colorscheme github
+colorscheme tomorrow-night
 set global grepcmd 'rg --column'
 
 map global user b :fzf-buffer<ret> -docstring 'FZF buffer'
@@ -13,7 +13,7 @@ map global user f :fzf-file<ret> -docstring 'FZF file'
 map global user j %{ <a-i>w :ctags-search<ret> } -docstring 'ctags jump to'
 map global user p '!xclip -o<ret>' -docstring 'paste from selection clipboard'
 map global user P '<a-!>xclip -o<ret>' -docstring 'paste after from selection clipboard'
-map global user y '<a-|>xclip<ret>' -docstring 'yank current selection to clipboard"
+map global user y '<a-|>xclip<ret>' -docstring 'yank current selection to clipboard'
 
 # enable jsdoc with the ,d key
 hook global WinSetOption filetype=(java|type)script %{
@@ -97,7 +97,7 @@ hook global WinSetOption filetype=javascript %{
 }
 
 hook global WinSetOption filetype=typescript %{
-  set window lintcmd 'eslint -f ~/.config/kak/eslint-kakoune.js'
+  set window lintcmd 'tslint --outputAbsolutePaths -t json $kak_buffile | jqn \'map(e => `${e.name}:${e.startPosition.line + 1}:${e.startPosition.character}: Error: ${e.failure} (${e.ruleName}) `) | join("\n")\''
   lint-enable
 }
 
