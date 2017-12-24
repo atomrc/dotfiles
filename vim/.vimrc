@@ -3,8 +3,8 @@ set nocompatible
 call plug#begin("~/.vim/bundle")
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'jremmen/vim-ripgrep'
-Plug 'tomasr/molokai'
-Plug 'sickill/vim-monokai'
+"Plug 'tomasr/molokai'
+Plug 'mhartington/oceanic-next'
 Plug 'tpope/vim-surround'
 Plug 'w0rp/ale'
 "Plug 'neomake/neomake'
@@ -12,7 +12,7 @@ Plug 'roxma/nvim-completion-manager'
 Plug 'roxma/nvim-cm-tern',  {'do': 'npm install'}
 "Plug 'Shougo/deoplete.nvim'
 "Plug 'carlitux/deoplete-ternjs', { 'do': 'npm -g install tern' }
-Plug 'jelera/vim-javascript-syntax'
+Plug 'othree/yajs.vim'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'spf13/PIV'
 Plug 'beyondwords/vim-twig'
@@ -22,16 +22,9 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/goyo.vim'
 Plug 'jamessan/vim-gnupg'
 Plug 'arnaud-lb/vim-php-namespace'
-Plug 'leafgarland/typescript-vim'
+Plug 'mhartington/nvim-typescript'
+Plug 'HerringtonDarkholme/yats.vim'
 Plug 'godlygeek/tabular'
-
-"Plug 'trevordmiller/nova-vim'
-"Plug 'ervandew/supertab'
-"Plug 'ternjs/tern_for_vim', { 'do': 'npm install' }
-"Plug 'pangloss/vim-javascript'
-"Plug 'embear/vim-localvimrc'
-"Plug 'digitaltoad/vim-jade'
-"Plug 'lambdatoast/elm.vim'
 call plug#end()
 
 filetype plugin indent on
@@ -86,13 +79,17 @@ map <C-j> g]
 imap jk <Esc>
 nmap <leader>s :syntax sync fromStart<CR>
 
-colorscheme molokai
+if (has("termguicolors"))
+ set termguicolors
+endif
+
+colorscheme OceanicNext
 "colorscheme nova
 
 "PLUGINS
 "CtrlP
-map <c-b> :CtrlPBuffer<CR>
-let g:ctrlp_map = '<c-p>'
+map <leader>b :CtrlPBuffer<CR>
+let g:ctrlp_map = '<leader>f'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_max_depth=1000
 let g:ctrlp_max_files=100000
@@ -102,20 +99,21 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v(.git|web|cache|vendor|node_modules|lib|tmp|bin|var|test|docs|build|_site|Proxy|assets)$',
   \ }
 
-"deoplete
-let g:deoplete#enable_at_startup = 1
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-inoremap <silent><expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-
 "tern
 let g:tern_show_argument_hints = 'on_hold'
 let g:tern_show_signature_in_pum = 1
 let g:tern_request_timeout = 1
 
-"Neomake
-"let g:neomake_javascript_enabled_makers=['eslint']
-"let g:neomake_php_enabled_makers=['php', 'phpmd']
-"autocmd! BufWritePost * Neomake
+"ale
+let g:ale_fixers = {
+  \ 'javascript': ['prettier'],
+  \ 'typescript': ['prettier']
+\}
+let g:ale_echo_msg_format = '[%linter%] %s'
+
+"completion-manager
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 "php-namespace
 autocmd FileType php inoremap <Leader>u <Esc>:call IPhpInsertUse()<CR>
