@@ -1,38 +1,15 @@
-# Couleurs du préfix du terminal
-WHITE="\[\e[0;38m\]"
-GRAY="\[\e[0;37m\]"
-HII="\[\e[0;36m\]"
-ORANGE="\[\e[0;33m\]"
-GREEN="\[\e[0;32m\]"
-RED="\[\e[0;31m\]"
-RESET="\[\e[0m\]"
+# Setting fd as the default source for fzf
+export FZF_DEFAULT_COMMAND='fd --type f'
 
-function parse_git_branch () {
-    local git_status="$(git status -sb -uno 2> /dev/null | sed -E -e '/^[^#]/d')";
-    local branch="$(echo $git_status | sed -E -e "s/^## ([^\.]*).*$/\1/")";
-    if [[ $git_status =~ "ahead" ]]; then
-        local ahead=" $WHITE$(echo $git_status | sed -E -e "s/^.*ahead ([0-9]+).*$/\1/")↑";
-    fi
-    if [[ $git_status =~ "behind" ]]; then
-        local behind=" $RED$(echo $git_status | sed -E -e "s/^.*behind ([0-9]+).*$/\1/")↓";
-    fi
-    if [[ $git_status =~ "..." ]]; then
-        local state=" ⚡";
-    fi
-    echo " $GREEN$branch$state$ahead$behind";
-}
+# To apply the command to CTRL-T as well
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-export CLICOLOR=1
-function prompt_func () {
-    local gitinfos="";
-    git rev-parse --git-dir &> /dev/null
-    if [ $? == 0 ]; then
-        gitinfos=`parse_git_branch`;
-    fi
-    prompt="$RESET[ $ORANGE\w$gitinfos$RESET ] ";
-    PS1="${prompt}";
-}
-PROMPT_COMMAND=prompt_func
+# ALIASES
+alias ll='ls -AlFh --color'
+# webtorrent, start vlc by default
+alias pf='webtorrent --vlc --not-on-top'
+# tmux config with default color
+alias tmux="env TERM=xterm-256color tmux"
 
 # loading bash_aliases if present
 if [ -f ~/.bash_aliases ]; then
@@ -47,5 +24,9 @@ fi
 # git completion
 if [ -f ~/.git-completion.bash ]; then
     source ~/.git-completion.bash
+fi
+
+if [ -f ~/.bash_powerline.sh ]; then
+    source ~/.bash_powerline.sh
 fi
 export VISUAL="nvim"

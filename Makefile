@@ -7,7 +7,6 @@ all: bash zsh vim git eslint tmux
 bash:
 	ln -s $(PROJECT_PATH)/bash/.bashrc ~/.bashrc
 	ln -s $(PROJECT_PATH)/bash/.bash_profile ~/.bash_profile
-	ln -s $(PROJECT_PATH)/bash/.bash_aliases ~/.bash_aliases
 
 bash-clean:
 	-rm ~/.bash_profile
