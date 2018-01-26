@@ -1,7 +1,7 @@
 set nocompatible
 
 call plug#begin("~/.vim/bundle")
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'jremmen/vim-ripgrep'
 "Plug 'tomasr/molokai'
 Plug 'mhartington/oceanic-next'
@@ -75,6 +75,8 @@ let loaded_matchit = 1
 "mappings
 let mapleader = ","
 
+autocmd BufNewFile,BufRead *.tsx setlocal filetype=typescript
+
 map <C-j> g]
 imap jk <Esc>
 nmap <leader>s :syntax sync fromStart<CR>
@@ -88,15 +90,11 @@ colorscheme OceanicNext
 
 "PLUGINS
 "CtrlP
-map <leader>b :CtrlPBuffer<CR>
-let g:ctrlp_map = '<leader>f'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_max_depth=1000
-let g:ctrlp_max_files=100000
+map <leader>f :FZF<CR>
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v(.git|web|cache|vendor|node_modules|lib|tmp|bin|var|test|docs|build|_site|Proxy|assets)$',
+  \ 'dir':  '\v(.git|web|cache|vendor|node_modules|lib|tmp|bin|var|docs|build|_site|Proxy|assets)$',
   \ }
 
 "tern
@@ -105,11 +103,13 @@ let g:tern_show_signature_in_pum = 1
 let g:tern_request_timeout = 1
 
 "ale
+map <leader>e :ALEFix<CR>
 let g:ale_fixers = {
   \ 'javascript': ['prettier'],
   \ 'typescript': ['prettier']
 \}
 let g:ale_echo_msg_format = '[%linter%] %s'
+let g:ale_lint_on_text_changed = 'never'
 
 "completion-manager
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
