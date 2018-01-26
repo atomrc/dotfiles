@@ -30,3 +30,5 @@ if [ -f ~/.bash_powerline.sh ]; then
     source ~/.bash_powerline.sh
 fi
 export VISUAL="nvim"
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
