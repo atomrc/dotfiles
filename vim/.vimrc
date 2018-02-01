@@ -2,6 +2,7 @@ set nocompatible
 
 call plug#begin("~/.vim/bundle")
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'jremmen/vim-ripgrep'
 "Plug 'tomasr/molokai'
 Plug 'mhartington/oceanic-next'
@@ -89,8 +90,12 @@ colorscheme OceanicNext
 "colorscheme nova
 
 "PLUGINS
-"CtrlP
+" Rg
+map <leader>r :Rg <C-r><C-w><CR>
+
+"fzf
 map <leader>f :FZF<CR>
+map <leader>b :Buffers<CR>
 
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = {
