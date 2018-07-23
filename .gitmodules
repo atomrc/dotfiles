@@ -7,3 +7,6 @@
 [submodule "kakoune/autoload/kakoune-jsdoc"]
 	path = kakoune/autoload/kakoune-jsdoc
 	url = git@github.com:atomrc/kakoune-jsdoc.git
+[submodule "kakoune/autoload/kakoune-ecmascript"]
+	path = kakoune/autoload/kakoune-ecmascript
+	url = https://github.com/Delapouite/kakoune-ecmascript.git

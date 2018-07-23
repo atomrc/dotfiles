@@ -3,13 +3,14 @@ set global indentwidth 4
 set global scrolloff 5,1
 
 map global insert <tab> '<a-;><a-gt>'
-map global insert <backtab> '<a-;><a-lt>'
+map global insert <s-tab> '<a-;><a-lt>'
 
 colorscheme tomorrow-night
 set global grepcmd 'rg --column'
 
 map global user b :fzf-buffer<ret> -docstring 'FZF buffer'
 map global user f :fzf-file<ret> -docstring 'FZF file'
+map global user e :format<ret> -docstring 'runs formatter'
 map global user j %{ <a-i>w :ctags-search<ret> } -docstring 'ctags jump to'
 map global user p '!xclip -o<ret>' -docstring 'paste from selection clipboard'
 map global user P '<a-!>xclip -o<ret>' -docstring 'paste after from selection clipboard'
@@ -26,8 +27,8 @@ hook global InsertChar k %{ try %{
   exec <esc>
 }}
 
-addhl -group / group trailing_white_spaces
-addhl -group /trailing_white_spaces regex \h+$ 0:Error
+addhl shared group trailing_white_spaces
+addhl shared/trailing_white_spaces regex \h+$ 0:Error
 
 # editorconfig
 hook global BufCreate .* %{editorconfig-load}
@@ -59,12 +60,12 @@ def -docstring 'invoke fzf to select a buffer' \
 # autocompletion
 hook global InsertCompletionShow .* %{
   map window insert <tab> <c-n>
-  map window insert <backtab> <c-p>
+  map window insert <s-tab> <c-p>
 }
 
 hook global InsertCompletionHide .* %{
   unmap window insert <tab> <c-n>
-  unmap window insert <backtab> <c-p>
+  unmap window insert <s-tab> <c-p>
 }
 
 
@@ -99,6 +100,10 @@ hook global WinSetOption filetype=javascript %{
 hook global WinSetOption filetype=typescript %{
   set window lintcmd 'tslint --outputAbsolutePaths -t json $kak_buffile | jqn \'map(e => `${e.name}:${e.startPosition.line + 1}:${e.startPosition.character}: Error: ${e.failure} (${e.ruleName}) `) | join("\n")\''
   lint-enable
+}
+
+hook global WinSetOption filetype=ecmascript %{
+  set window formatcmd 'prettier --stdin'
 }
 
 # local config file
