@@ -19,6 +19,10 @@ map global user p '!xclip -o<ret>' -docstring 'Paste from selection clipboard'
 map global user P '<a-!>xclip -o<ret>' -docstring 'Paste after from selection clipboard'
 map global user y '<a-|>xclip<ret>' -docstring 'Yank current selection to clipboard'
 
+# move through paragraphs
+map global normal { [p
+map global normal } ]p
+
 # enable jsdoc with the ,d key
 hook global WinSetOption filetype=(java|ecma|type)script %{
   map global user d ':jsdoc<ret>' -docstring "Generate jsdoc for current function"
