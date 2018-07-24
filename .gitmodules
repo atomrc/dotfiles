@@ -3,10 +3,10 @@
 	url = https://github.com/hukl/Smyck-Color-Scheme.git
 [submodule "kakoune/autoload/kakoune-typescript"]
 	path = kakoune/autoload/kakoune-typescript
-	url = git@github.com:atomrc/kakoune-typescript.git
+	url = https://github.com/atomrc/kakoune-typescript.git
 [submodule "kakoune/autoload/kakoune-jsdoc"]
 	path = kakoune/autoload/kakoune-jsdoc
-	url = git@github.com:atomrc/kakoune-jsdoc.git
+	url = https://github.com/atomrc/kakoune-jsdoc.git
 [submodule "kakoune/autoload/kakoune-ecmascript"]
 	path = kakoune/autoload/kakoune-ecmascript
 	url = https://github.com/Delapouite/kakoune-ecmascript.git
