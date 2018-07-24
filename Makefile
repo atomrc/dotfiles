@@ -32,8 +32,8 @@ eslint-clean:
 	-rm ~/.eslintrc
 
 vim:
-	ln -s $(PROJECT_PATH)/vim/.vimrc ~/.vimrc
-	ln -s $(PROJECT_PATH)/vim/.vim ~/.vim
+	ln -s $(PROJECT_PATH)/vim/.vimrc ~/.config/nvim/init.vim
+	ln -s $(PROJECT_PATH)/vim/.vim ~/.config/nvim/vim
 
 vim-clean:
 	-rm -rf ~/.vim
