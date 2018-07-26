@@ -41,7 +41,7 @@ hook global InsertChar k %{ try %{
 hook global BufCreate .* %{editorconfig-load}
 
 def -docstring 'invoke fzf to open a file' \
-  fzf-file %{ %sh{
+  fzf-file %{ evaluate-commands %sh{
     if [ -z "$TMUX" ]; then
       echo echo only works inside tmux
     else
@@ -53,7 +53,7 @@ def -docstring 'invoke fzf to open a file' \
 } }
 
 def -docstring 'invoke fzf to select a buffer' \
-  fzf-buffer %{ %sh{
+  fzf-buffer %{ evaluate-commands %sh{
     if [ -z "$TMUX" ]; then
       echo echo only works inside tmux
     else
