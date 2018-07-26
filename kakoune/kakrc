@@ -18,6 +18,8 @@ map global user r '<a-i>w :grep<ret>' -docstring 'Search current word across pro
 map global user p '!xclip -o<ret>' -docstring 'Paste from selection clipboard'
 map global user P '<a-!>xclip -o<ret>' -docstring 'Paste after from selection clipboard'
 map global user y '<a-|>xclip<ret>' -docstring 'Yank current selection to clipboard'
+map global user n :lint-next-error<ret> -docstring 'Jump to next linting error'
+map global user p :lint-previous-error<ret> -docstring 'Jump to previous linting error'
 
 # move through paragraphs
 map global normal { [p
@@ -104,8 +106,12 @@ hook global WinSetOption filetype=typescript %{
 }
 
 hook global WinSetOption filetype=(ecma|java)script %{
-  set window lintcmd 'eslint -f ~/.config/kak/eslint-kakoune.js'
-  set window formatcmd 'prettier --stdin --semi false --single-quote --jsx-bracket-same-line --trailing-comma all'
+  set window lintcmd 'npx eslint -f ~/.config/kak/eslint-kakoune.js'
+  set window formatcmd 'prettier --stdin'
+  lint-enable
+  hook buffer BufWritePost .* %{
+    lint
+  }
 }
 
 # local config file
