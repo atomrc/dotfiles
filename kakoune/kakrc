@@ -34,8 +34,8 @@ hook global InsertChar k %{ try %{
   exec <esc>
 }}
 
-addhl shared group trailing_white_spaces
-addhl shared/trailing_white_spaces regex \h+$ 0:Error
+#addhl shared group trailing_white_spaces
+#addhl shared/trailing_white_spaces regex \h+$ 0:Error
 
 # editorconfig
 hook global BufCreate .* %{editorconfig-load}
@@ -57,7 +57,7 @@ def -docstring 'invoke fzf to select a buffer' \
     if [ -z "$TMUX" ]; then
       echo echo only works inside tmux
     else
-      BUFFER=$(printf %s\\n "${kak_buflist}" | tr : '\n' | fzf-tmux -d 15)
+      BUFFER=$(printf %s\\n "${kak_buflist}" | sed "s/' '/\\n/g" | tr -d "'" | fzf-tmux -d 15)
       if [ -n "$BUFFER" ]; then
         echo "eval -client '$kak_client' 'buffer ${BUFFER}'" | kak -p ${kak_session}
       fi
@@ -89,9 +89,9 @@ hook global NormalIdle .* %{
 }
 
 hook global WinCreate .* %{
-  addhl window/ show_matching
+  addhl window/ show-matching
   #addhl show_whitespaces
-  addhl window/ number_lines -relative -hlcursor
+  addhl window/ number-lines -relative -hlcursor
   addhl window/ dynregex '%reg{/}' 0:+u 1:+b
 
   # Highlight the word under the cursor
@@ -104,6 +104,7 @@ hook global WinSetOption filetype=typescript %{
 }
 
 hook global WinSetOption filetype=(ecma|java)script %{
+  set window lintcmd 'eslint -f ~/.config/kak/eslint-kakoune.js'
   set window formatcmd 'prettier --stdin --semi false --single-quote --jsx-bracket-same-line --trailing-comma all'
 }
 
