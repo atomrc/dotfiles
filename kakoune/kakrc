@@ -19,7 +19,7 @@ map global user p '!xclip -o<ret>' -docstring 'Paste from selection clipboard'
 map global user P '<a-!>xclip -o<ret>' -docstring 'Paste after from selection clipboard'
 map global user y '<a-|>xclip<ret>' -docstring 'Yank current selection to clipboard'
 map global user n :lint-next-error<ret> -docstring 'Jump to next linting error'
-map global user p :lint-previous-error<ret> -docstring 'Jump to previous linting error'
+#map global user p :lint-previous-error<ret> -docstring 'Jump to previous linting error'
 
 # move through paragraphs
 map global normal { [p
