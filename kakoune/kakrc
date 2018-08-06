@@ -109,7 +109,7 @@ hook global WinSetOption filetype=typescript %{
 hook global WinSetOption filetype=(ecma|java)script %{
   # linting using stdin as source (see https://github.com/mawww/kakoune/issues/2283)
   set window lintcmd 'run() { cat "$1" | npx eslint -f ~/.config/kak/eslint-kakoune.js --stdin --stdin-filename "$kak_buffile"; } && run '
-  set window formatcmd 'prettier --stdin'
+  set window formatcmd 'prettier --stdin --stdin-filepath $kak_buffile'
   lint-enable
   hook buffer BufWritePost .* %{
     lint
