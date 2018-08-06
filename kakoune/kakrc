@@ -92,6 +92,7 @@ hook global NormalIdle .* %{
 
 hook global WinCreate .* %{
   addhl window/ show-matching
+  addhl window/ wrap
   #addhl show_whitespaces
   addhl window/ number-lines -relative -hlcursor
   addhl window/ dynregex '%reg{/}' 0:+u 1:+b
