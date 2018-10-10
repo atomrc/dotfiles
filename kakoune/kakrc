@@ -101,6 +101,11 @@ hook global WinCreate .* %{
   addhl window/ dynregex '%opt{curword}' 0:+b
 }
 
+hook global WinSetOption filetype=(ecma|java|type)script %{
+  set window formatcmd 'prettier --stdin --stdin-filepath $kak_buffile'
+}
+
+# linting
 hook global WinSetOption filetype=typescript %{
   set window lintcmd 'tslint --outputAbsolutePaths -t json $kak_buffile | jqn \'map(e => `${e.name}:${e.startPosition.line + 1}:${e.startPosition.character}: Error: ${e.failure} (${e.ruleName}) `) | join("\n")\''
   lint-enable
@@ -109,8 +114,6 @@ hook global WinSetOption filetype=typescript %{
 hook global WinSetOption filetype=(ecma|java)script %{
   # linting using stdin as source (see https://github.com/mawww/kakoune/issues/2283)
   set window lintcmd 'run() { cat "$1" | npx eslint -f ~/.config/kak/eslint-kakoune.js --stdin --stdin-filename "$kak_buffile"; } && run '
-  set window formatcmd 'prettier --stdin --stdin-filepath $kak_buffile'
-  lint-enable
   hook buffer BufWritePost .* %{
     lint
   }
