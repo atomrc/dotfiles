@@ -1,16 +1,18 @@
+source "%val{config}/fzf.kak"
+
+eval %sh{kak-lsp --kakoune -s $kak_session}
+
+colorscheme tomorrow-night
 set global tabstop 2
 set global indentwidth 2
 set global scrolloff 5,1
-
-map global insert <tab> '<a-;><a-gt>'
-map global insert <s-tab> '<a-;><a-lt>'
+set global grepcmd 'rg --column'
 
 alias global x write-quit
 
-colorscheme tomorrow-night
-set global grepcmd 'rg --column'
-
-eval %sh{kak-lsp --kakoune -s $kak_session}
+# move through paragraphs
+map global normal { [p
+map global normal } ]p
 
 map global user b :fzf-buffer<ret> -docstring 'FZF buffer'
 map global user f :fzf-file<ret> -docstring 'FZF file'
@@ -20,14 +22,6 @@ map global user r '<a-i>w :grep<ret>' -docstring 'Search current word across pro
 map global user p '!xclip -o<ret>' -docstring 'Paste from selection clipboard'
 map global user P '<a-!>xclip -o<ret>' -docstring 'Paste after from selection clipboard'
 map global user y '<a-|>xclip<ret>' -docstring 'Yank current selection to clipboard'
-map global user n :lint-next-error<ret> -docstring 'Jump to next linting error'
-#map global user p :lint-previous-error<ret> -docstring 'Jump to previous linting error'
-
-# move through paragraphs
-map global normal { [p
-map global normal } ]p
-
-# enable jsdoc with the ,d key
 hook global WinSetOption filetype=(java|ecma|type)script %{
   map global user d ':jsdoc<ret>' -docstring "Generate jsdoc for current function"
 }
@@ -38,35 +32,12 @@ hook global InsertChar k %{ try %{
   exec <esc>
 }}
 
-#addhl shared group trailing_white_spaces
-#addhl shared/trailing_white_spaces regex \h+$ 0:Error
-
 # editorconfig
 hook global BufCreate .* %{editorconfig-load}
 
-def -docstring 'invoke fzf to open a file' \
-  fzf-file %{ evaluate-commands %sh{
-    if [ -z "$TMUX" ]; then
-      echo echo only works inside tmux
-    else
-      FILE=$(rg --files --glob "" | fzf-tmux -d 15)
-      if [ -n "$FILE" ]; then
-        printf 'eval -client %%{%s} edit %%{%s}\n' "${kak_client}" "${FILE}" | kak -p "${kak_session}"
-      fi
-    fi
-} }
-
-def -docstring 'invoke fzf to select a buffer' \
-  fzf-buffer %{ evaluate-commands %sh{
-    if [ -z "$TMUX" ]; then
-      echo echo only works inside tmux
-    else
-      BUFFER=$(printf %s\\n "${kak_buflist}" | sed "s/' '/\\n/g" | tr -d "'" | fzf-tmux -d 15)
-      if [ -n "$BUFFER" ]; then
-        echo "eval -client '$kak_client' 'buffer ${BUFFER}'" | kak -p ${kak_session}
-      fi
-    fi
-} }
+# indentation with Tab
+map global insert <tab> '<a-;><a-gt>'
+map global insert <s-tab> '<a-;><a-lt>'
 
 # autocompletion
 hook global InsertCompletionShow .* %{
@@ -79,27 +50,27 @@ hook global InsertCompletionHide .* %{
   unmap window insert <s-tab> <c-p>
 }
 
-
-# highlighters
+# Highlighters
 decl -hidden regex curword
 
+# Keep track of the word under the cursor
 hook global NormalIdle .* %{
-    eval -draft %{ try %{
-        exec <space><a-i>w #<a-k>\`\w+\'<ret>
-        set buffer curword "\b\Q%val{selection}\E\b"
-    } catch %{
-        set buffer curword ''
-    } }
+  eval -draft %{ try %{
+    exec <space><a-i>w #<a-k>\`\w+\'<ret>
+    set buffer curword "\b\Q%val{selection}\E\b"
+  } catch %{
+    set buffer curword ''
+  } }
 }
 
 hook global WinCreate .* %{
-  addhl window/ show-matching
   addhl window/ wrap
-  #addhl show_whitespaces
   addhl window/ number-lines -relative -hlcursor
+  # Highlights search results
   addhl window/ dynregex '%reg{/}' 0:+u 1:+b
+  # addhl window/ regex \h+$ 0:Error
 
-  # Highlight the word under the cursor
+  # Highlights the word under the cursor
   addhl window/ dynregex '%opt{curword}' 0:+b
 }
 
