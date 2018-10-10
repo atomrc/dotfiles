@@ -63,16 +63,14 @@ hook global NormalIdle .* %{
   } }
 }
 
-hook global WinCreate .* %{
-  addhl window/ wrap
-  addhl window/ number-lines -relative -hlcursor
-  # Highlights search results
-  addhl window/ dynregex '%reg{/}' 0:+u 1:+b
-  # addhl window/ regex \h+$ 0:Error
+addhl global/ wrap
+addhl global/ number-lines -relative -hlcursor
+# Highlights search results
+addhl global/ dynregex '%reg{/}' 0:+u 1:+b
+# addhl global/ regex \h+$ 0:Error
 
-  # Highlights the word under the cursor
-  addhl window/ dynregex '%opt{curword}' 0:+b
-}
+# Highlights the word under the cursor
+addhl global/ dynregex '%opt{curword}' 0:+b
 
 hook global WinSetOption filetype=(ecma|java|type)script %{
   set window formatcmd 'prettier --stdin --stdin-filepath $kak_buffile'
