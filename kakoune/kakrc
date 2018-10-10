@@ -9,6 +9,8 @@ set global scrolloff 5,1
 set global grepcmd 'rg --column'
 
 alias global x write-quit
+alias global cc comment-line
+alias global cx comment-block
 
 # move through paragraphs
 map global normal { [p
