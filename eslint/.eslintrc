@@ -1,5 +1,5 @@
 {
-    "extends": "defaults",
+    "extends": "eslint:recommended",
     "env": {
         "browser": true,
         "es6": true
@@ -7,10 +7,6 @@
     "parserOptions": {
         "ecmaVersion": 6,
         "sourceType": "module",
-        "ecmaFeatures": {
-            "spread": true,
-            "experimentalObjectRestSpread": true
-        },
     },
     "rules": {
         "block-scoped-var": 1,
