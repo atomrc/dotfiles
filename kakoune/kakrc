@@ -10,6 +10,8 @@ alias global x write-quit
 colorscheme tomorrow-night
 set global grepcmd 'rg --column'
 
+eval %sh{kak-lsp --kakoune -s $kak_session}
+
 map global user b :fzf-buffer<ret> -docstring 'FZF buffer'
 map global user f :fzf-file<ret> -docstring 'FZF file'
 map global user e :format<ret> -docstring 'Run formatter'
