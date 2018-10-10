@@ -65,7 +65,7 @@ hook global NormalIdle .* %{
   } }
 }
 
-addhl global/ wrap
+addhl global/ wrap -word
 addhl global/ number-lines -relative -hlcursor
 # Highlights search results
 addhl global/ dynregex '%reg{/}' 0:+u 1:+b
