@@ -10,6 +10,7 @@ bindkey '^r' history-incremental-search-backward
 export PATH="/usr/local/bin:$PATH"
 
 alias ll='ls -al'
+alias g='git'
 
 for COLOR in RED GREEN YELLOW BLUE MAGENTA CYAN BLACK WHITE; do
     eval $COLOR='%{$fg_no_bold[${(L)COLOR}]%}'  #wrap colours between %{ %} to avoid weird gaps in autocomplete
